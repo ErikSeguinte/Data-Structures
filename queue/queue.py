@@ -163,6 +163,33 @@ class ListQueue(linked_list):
             return None
         return self.popright()
 
+from stack.stack import Stack
 
-class Queue(ListQueue):
+class StackQueue(linked_list):
+
+    def __init__(self):
+        super().__init__()
+        self.stack1 = Stack()
+        self.stack2 = Stack()
+
+    def __len__(self):
+        return len(self.stack1) + len(self.stack2)
+
+    def enqueue(self, value):
+        self.stack1.push(value)
+
+    def dequeue(self):
+        if self.__len__ == 0:
+            return None
+        if len(self.stack2) > 0:
+            return self.stack2.pop()
+
+        else:
+            while len(self.stack1) > 0:
+                self.stack2.push(self.stack1.pop())
+
+            return self.stack2.pop()
+
+
+class Queue(StackQueue):
     pass
