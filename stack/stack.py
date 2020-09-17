@@ -11,8 +11,9 @@ return elements in Last In First Out order.
    implementing a Stack?
 """
 
+
 class DynamicArray:
-    def __init__(self, capacity = 8):
+    def __init__(self, capacity=8):
         self.capacity = capacity
         self.size = 0
 
@@ -24,7 +25,7 @@ class DynamicArray:
         self.array[self.size] = element
         self.size += 1
 
-    def get_element(self, position:int):
+    def get_element(self, position: int):
         if position < 0 or position > self.size:
             raise IndexError
         else:
@@ -58,13 +59,13 @@ class DynamicArray:
         self.capacity = self.capacity // 2
         new_array = [None] * self.capacity
 
-        for i,e in enumerate(self.array[:self.size]):
+        for i, e in enumerate(self.array[: self.size]):
             new_array[i] = e
 
         self.array = new_array
 
     def print(self):
-        print(self.array[:self.size])
+        print(self.array[: self.size])
 
 
 class ArrayStack(DynamicArray):
@@ -85,26 +86,32 @@ class ArrayStack(DynamicArray):
         except IndexError:
             return None
 
-class Stack(ArrayStack):
-    pass
+
+# class Stack(ArrayStack):
+#     pass
 
 
-class Node():
-
+class Node:
     def __init__(self, data=None, next_node=None, prev_node=None):
         self.data = data
         self.next_node = next_node
         self.prev_node = prev_node
 
     def print_node(self):
-        if (self.data):
-            print("self", self.data, ", next:", self.next_node.data, ", prev:", self.prev_node.data)
+        if self.data:
+            print(
+                "self",
+                self.data,
+                ", next:",
+                self.next_node.data,
+                ", prev:",
+                self.prev_node.data,
+            )
         else:
             print("Empty Node")
 
 
-class LinkedList():
-
+class LinkedList:
     def __init__(self, head=None, tail=None):
         self.size = 0
         self.head = head
@@ -135,10 +142,8 @@ class LinkedList():
                 self.head = None
                 self.tail = None
 
-            self.size -=1
+            self.size -= 1
             return node.data
-
-
 
         else:
             return None
@@ -201,6 +206,7 @@ class LinkedList():
         while current:
             print(current.data)
             current = current.next_node
+
 
 class ListStack(LinkedList):
     def __init__(self):
