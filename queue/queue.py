@@ -163,7 +163,14 @@ class ListQueue(linked_list):
             return None
         return self.popright()
 
-from stack.stack import Stack
+import sys
+from pathlib import Path
+path = Path("../stack")
+print(path)
+
+sys.path.append(path)
+
+from stack import Stack
 
 class StackQueue(linked_list):
 
