@@ -18,7 +18,7 @@ class Heap:
         pass
 
     def get_max(self):
-        pass
+        return self._storage[1]
 
     def get_size(self):
         return self.size
