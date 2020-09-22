@@ -16,7 +16,7 @@ class Heap:
         self._bubble_up(self.size)
 
     def delete(self):
-        if self.size > 1:
+        if self.size > 0:
             root = self._storage[1]
             self._storage[1], self._storage[self.size] = self._storage[self.size], None
             self.size -= 1
@@ -54,7 +54,7 @@ class Heap:
             i = max_child
 
     def _get_max_child(self, i):
-        if ((i * 2 + 1) > self.size) or self._storage[i * 2] > self._storage[i * 2 + 1]:
+        if ((i * 2 + 1) > self.size) or self._storage[i * 2] >= self._storage[i * 2 + 1]:
             return i * 2
         else:
             return i * 2 + 1
